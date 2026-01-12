@@ -1,0 +1,51 @@
+---
+title: "Coyoacán Data Analysis"
+publishedAt: "2024-05-15"
+summary: "Integrated analysis of georeferenced, economic, and electoral data for strategic decision-making in Coyoacán, Mexico City."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Jaziel Flores"
+    role: "Lead Data Scientist / Engineer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://linkedin.com/in/jazieldavidfloresrodriguez"
+link: "https://github.com/JazzzFM/CoyoacanDataAnalysis"
+---
+
+## Overview
+
+[View on GitHub](https://github.com/JazzzFM/CoyoacanDataAnalysis)
+
+This project performs a detailed analysis of the Coyoacán borough in Mexico City, utilizing georeferenced, economic, electoral, and environmental data to identify patterns and community needs. It is designed to provide valuable insights for strategic decision-making and public policy.
+
+## Objectives
+
+- **Demographic & Economic Evaluation**: Analyze population distribution, income, and employment to identify vulnerable areas.
+- **Service Accessibility**: Map health, education, and transport services to identify infrastructure gaps.
+- **Environmental Quality**: Evaluate air quality and green space access, correlating them with public health.
+- **Electoral Patterns**: Integrate electoral data to understand demographic influences on local voting behavior.
+- **Strategic Recommendations**: Propose public policies focused on the most vulnerable groups.
+
+## Technical Implementation
+
+### PostGIS Migration
+- **Database**: PostgreSQL with PostGIS extension for efficient geospatial querying.
+- **Data Ingestion**: Migration of SHP (Shapefiles) using `ogr2ogr`.
+- **Integrity**: Validation and quality checks on imported geospatial data.
+- **Security**: Environment variable configuration for secure database access.
+
+### Interactive Dashboard
+- **Framework**: Developed using **Dash (Python)**.
+- **Real-time Integration**: Connected to the PostGIS database for live data exploration.
+- **Containerization**: Deployed using **Docker**, ensuring the dashboard and database coexist in a shared internal network.
+
+## Technologies Used
+
+- **Python**: Dash, Pandas, GeoPandas.
+- **Geospatial**: PostGIS, PostgreSQL, QGIS, `ogr2ogr`.
+- **Infrastructure**: Docker, Docker Compose.
+- **Data Sources**: INEGI (Economic), IECM (Electoral), Environmental monitoring stations.
+
+## Outcome
+
+The project successfully provides a unified platform to visualize complex urban dynamics, enabling stakeholders to move from raw data to actionable urban intelligence.

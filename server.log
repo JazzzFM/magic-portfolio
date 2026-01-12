@@ -1,0 +1,30 @@
+
+> @once-ui-system/magic-portfolio@2.3.0 dev
+> next dev
+
+   ▲ Next.js 15.5.6
+   - Local:        http://localhost:3000
+   - Network:      http://10.255.255.254:3000
+
+ ✓ Starting...
+ ✓ Ready in 1004ms
+ ○ Compiling / ...
+ ✓ Compiled / in 16.8s (5412 modules)
+ GET / 200 in 19377ms
+ ○ Compiling /favicon.ico ...
+ ✓ Compiled /favicon.ico in 4.4s (2730 modules)
+ GET /favicon.ico 200 in 4472ms
+ ○ Compiling /about ...
+ ✓ Compiled /work in 3.1s (4764 modules)
+ GET /work 200 in 1835ms
+ GET /about 200 in 3489ms
+ GET /work 200 in 62ms
+ GET /about 200 in 68ms
+ GET /work 200 in 50ms
+ GET /work 200 in 22ms
+ ○ Compiling /gallery ...
+ ✓ Compiled /gallery in 1533ms (4772 modules)
+ GET /gallery 200 in 1773ms
+ GET / 200 in 54ms
+ ✓ Compiled in 4.1s (4743 modules)
+ ✓ Compiled in 5s (4743 modules)

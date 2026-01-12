@@ -12,6 +12,9 @@ import {
   HiOutlineDocument,
   HiOutlineGlobeAsiaAustralia,
   HiOutlineRocketLaunch,
+  HiOutlineCircleStack,
+  HiOutlineChartBar,
+  HiOutlineAcademicCap,
 } from "react-icons/hi2";
 
 import {
@@ -27,9 +30,29 @@ import {
   SiNextdotjs,
   SiFigma,
   SiSupabase,
+  SiDocker,
+  SiKubernetes,
+  SiPython,
+  SiAmazon,
+  SiApachespark,
+  SiApachehadoop,
+  SiApacheairflow,
+  SiGitlab,
 } from "react-icons/si";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaX, FaThreads, FaXTwitter, FaFacebook, FaPinterest, FaWhatsapp, FaReddit, FaTelegram, } from "react-icons/fa6";
+import {
+  FaDiscord,
+  FaGithub,
+  FaLinkedin,
+  FaX,
+  FaThreads,
+  FaXTwitter,
+  FaFacebook,
+  FaPinterest,
+  FaWhatsapp,
+  FaReddit,
+  FaTelegram,
+} from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
   arrowUpRight: HiArrowUpRight,
@@ -48,6 +71,7 @@ export const iconLibrary: Record<string, IconType> = {
   eyeOff: HiOutlineEyeSlash,
   github: FaGithub,
   linkedin: FaLinkedin,
+  gitlab: SiGitlab,
   x: FaX,
   twitter: FaXTwitter,
   threads: FaThreads,
@@ -58,11 +82,21 @@ export const iconLibrary: Record<string, IconType> = {
   nextjs: SiNextdotjs,
   supabase: SiSupabase,
   figma: SiFigma,
+  docker: SiDocker,
+  kubernetes: SiKubernetes,
+  python: SiPython,
+  aws: SiAmazon,
+  spark: SiApachespark,
+  hadoop: SiApachehadoop,
+  airflow: SiApacheairflow,
   facebook: FaFacebook,
   pinterest: FaPinterest,
   whatsapp: FaWhatsapp,
   reddit: FaReddit,
   telegram: FaTelegram,
+  database: HiOutlineCircleStack,
+  chart: HiOutlineChartBar,
+  academic: HiOutlineAcademicCap,
 };
 
 export type IconLibrary = typeof iconLibrary;

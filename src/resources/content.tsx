@@ -2,39 +2,37 @@ import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/
 import { Line, Logo, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Jaziel David",
+  lastName: "Flores Rodríguez",
+  name: "Jaziel David Flores Rodríguez",
+  role: "Forward Deployed Engineer",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "jazzesfm@gmail.com",
+  location: "America/Mexico_City",
+  languages: ["English", "Spanish"],
 };
 
 const newsletter: Newsletter = {
   display: true,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>Weekly insights on MLOps, LLMOps, and Production Engineering</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/JazzzFM",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://linkedin.com/in/jazieldavidfloresrodriguez",
   },
   {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "X",
+    icon: "x",
+    link: "https://x.com/jazielflo",
   },
   {
     name: "Email",
@@ -49,30 +47,25 @@ const home: Home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
   description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  headline: <>Forward Deployed Engineer (LLMOps/MLOps)</>,
   featured: {
     display: true,
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Latest Project</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
-          Featured work
+          Coyoacán Data Analysis
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/coyoacan-data-analysis",
   },
   subline: (
     <>
-      I'm Selene, a design engineer at{" "}
-      <Logo
-        dark
-        icon="/trademarks/wordmark-dark.svg"
-        style={{ display: "inline-flex", top: "0.25em", marginLeft: "-0.25em" }}
-      />
-      , where I craft intuitive
-      <br /> user experiences. After hours, I build my own projects.
+      Physics-mathematician delivering ML systems from research to production.
+      <br />
+      Specialized in PySpark, FastAPI, AWS, and production-grade MLOps/LLMOps.
     </>
   ),
 };
@@ -81,7 +74,7 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} based in ${person.location}`,
   tableOfContent: {
     display: true,
     subItems: false,
@@ -91,139 +84,169 @@ const about: About = {
   },
   calendar: {
     display: true,
-    link: "https://cal.com",
+    link: "mailto:jazzesfm@gmail.com",
   },
   intro: {
     display: true,
-    title: "Introduction",
+    title: "Summary",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Physics-mathematician with 5+ years delivering ML systems from research to production. Built
+        and deployed models processing 20TB+ of financial data and ~3M transactions/day. Strong in
+        PySpark, FastAPI, MLflow, AWS, and production-grade MLOps/LLMOps.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Saptiva AI",
+        timeframe: "2025-09 - Present",
+        role: "Forward Deployed Engineer",
         achievements: [
           <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
+            Led deployments of mission-critical AI across regulated industries
+            (banking/defense/government) in LatAm.
           </>,
           <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
+            Standardized delivery with Docker + CI/CD + runbooks to reduce prototype→production
+            friction.
           </>,
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Banamex / Citibanamex",
+        timeframe: "2023-01 - 2025-09",
+        role: "Senior ML Engineer & Tech Lead",
         achievements: [
           <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
+            Deployed credit-risk, CX and fraud models scoring ~3M tx/day; improved approval accuracy
+            and reduced false positives.
           </>,
           <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
+            Integrated Spark-based feature pipelines; deployed to AWS SageMaker; reduced latency and
+            operational costs.
           </>,
+          <>
+            Co-authored Python/Shell + CI/CD deployment framework; shortened release cycles and
+            reduced Spark cluster spend.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "NTT DATA",
+        timeframe: "2021-01 - 2022-12",
+        role: "Lead ML Engineer",
+        achievements: [
+          <>Automated Spark ETL pipelines on Hadoop clusters feeding downstream ML workflows.</>,
+          <>Built production evaluation pipeline (Airflow + MLflow + Pytest) for A/B testing.</>,
+          <>Mentored 7 juniors; delivered internal workshop on MLOps.</>,
+        ],
+        images: [],
+      },
+      {
+        company: "Gerencia del Poder / Morant Consultores",
+        timeframe: "2019-07 - 2021-11",
+        role: "Data Scientist & R Developer",
+        achievements: [
+          <>Deployed election-forecasting ML API (Flask) consumed by 3 major media outlets.</>,
+          <>Migrated ~300GB polling data to AWS Athena; reduced query latency minutes→seconds.</>,
+          <>Built Shiny dashboards integrating ML predictions and business KPIs.</>,
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education & Research",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "Instituto Politécnico Nacional (IPN)",
+        description: <>B.Sc. Physics & Mathematics (ESFM) (2016 - 2021)</>,
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "CIC-IPN Cybersecurity Laboratory",
+        description: <>Research Stay: Post-quantum cryptography & Lattices (2019)</>,
+      },
+      {
+        name: "CINVESTAV-IPN",
+        description: <>Research Stay: Algebraic topology & Motion planning (2020-2021)</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
-    title: "Technical skills",
+    display: true,
+    title: "Core Skills",
     skills: [
       {
-        title: "Figma",
-        description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
-        ),
+        title: "Languages & Backend",
+        description: <>Python, SQL, Bash, Go, R, FastAPI, Flask</>,
         tags: [
           {
-            name: "Figma",
-            icon: "figma",
-          },
-        ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "Python",
+            icon: "python",
           },
           {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-        ],
-      },
-      {
-        title: "Next.js",
-        description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
-        ),
-        tags: [
-          {
-            name: "JavaScript",
+            name: "Javascript",
             icon: "javascript",
           },
+        ],
+        images: [],
+      },
+      {
+        title: "Data Engineering",
+        description: <>PySpark, Hadoop, Airflow, Kafka, Flink</>,
+        tags: [
           {
-            name: "Next.js",
-            icon: "nextjs",
+            name: "Spark",
+            icon: "spark",
           },
           {
-            name: "Supabase",
-            icon: "supabase",
+            name: "Hadoop",
+            icon: "hadoop",
+          },
+          {
+            name: "Airflow",
+            icon: "airflow",
           },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
+        images: [],
+      },
+      {
+        title: "MLOps & Cloud",
+        description: <>AWS (S3, EMR, Lambda, Athena, SageMaker), Docker, Kubernetes, Terraform</>,
+        tags: [
           {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
+            name: "AWS",
+            icon: "aws",
+          },
+          {
+            name: "Docker",
+            icon: "docker",
+          },
+          {
+            name: "Kubernetes",
+            icon: "kubernetes",
           },
         ],
-      },  
+        images: [],
+      },
+      {
+        title: "ML & AI",
+        description: <>scikit-learn, PyTorch, TensorFlow, GAMs, SHAP, Feature Engineering</>,
+        tags: [
+          {
+            name: "Analysis",
+            icon: "chart",
+          },
+        ],
+        images: [],
+      },
     ],
   },
 };
@@ -231,19 +254,15 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Engineering Logs",
+  description: `Read what ${person.name} has been working on`,
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Engineering projects by ${person.name}`,
 };
 
 const gallery: Gallery = {
@@ -251,8 +270,6 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
   images: [
     {
       src: "/images/gallery/horizontal-1.jpg",

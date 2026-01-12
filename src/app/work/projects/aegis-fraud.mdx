@@ -1,0 +1,37 @@
+---
+title: "AegisFraud: Real-Time Fraud Detection"
+publishedAt: "2024-08-20"
+summary: "A real-time fraud detection platform combining Apache Kafka, Apache Flink, MLflow, and Apache Airflow for low-latency anomaly detection."
+images:
+  - "/images/projects/project-01/cover-03.jpg"
+team:
+  - name: "Jaziel Flores"
+    role: "Sole Creator"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://linkedin.com/in/jazieldavidfloresrodriguez"
+---
+
+## Overview
+
+[View on GitHub](https://github.com/JazzzFM/AegisFraud)
+
+AegisFraud (from Greek “aegis” = shield) is a high-performance, real-time fraud detection platform. It ingests transaction streams to detect anomalies in milliseconds, preventing financial loss before it happens.
+
+## Key Features
+
+- **Real-Time Processing**: Utilizes Apache Kafka and Flink for sub-second event processing and feature extraction.
+- **Hybrid Architecture**: Combines batch training (Airflow) with real-time inference (Flink/On-line serving).
+- **Dynamic Rules Engine**: Allows analysts to update fraud detection rules on the fly without redeploying the entire system.
+- **Model Lifecycle**: Managed via MLflow for versioning, staging, and promoting detection models.
+
+## Technologies Used
+
+- **Apache Kafka**: Event streaming backbone.
+- **Apache Flink**: Stateful stream processing.
+- **Apache Airflow**: Orchestration of batch retraining pipelines.
+- **MLflow**: Model registry and tracking.
+- **Python & Java**: For model development and Flink jobs.
+
+## Outcome
+
+AegisFraud demonstrates how modern streaming technologies can be composed to solve critical security challenges, providing a scalable shield against evolving fraud patterns.
