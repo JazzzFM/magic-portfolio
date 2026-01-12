@@ -1,9 +1,9 @@
 ---
-title: "SentinelMCP: Enterprise RAG & Multi-Agent Orchestration"
+title: "SentinelMCP: Multi-Agent Orchestration with AutoGen & MCP"
 publishedAt: "2025-01-05"
-summary: "A production‑minded system for Retrieval‑Augmented Generation (RAG) with multi‑agent orchestration and Model Context Protocol (MCP) integration."
+summary: "A production‑minded multi‑agent system built with AutoGen Core and Studio, integrating Playwright and Tidewave MCP servers for autonomous web research and data analysis."
 images:
-  - "/images/projects/project-01/cover-04.jpg"
+  - "/images/projects/sentinel-mcp/cover.png"
 team:
   - name: "Jaziel Flores"
     role: "Sole Creator"
@@ -15,23 +15,49 @@ team:
 
 [View on GitHub](https://github.com/JazzzFM/SentinelMCP)
 
-SentinelMCP is an advanced Retrieval-Augmented Generation (RAG) system designed for enterprise complexity. It goes beyond simple Q&A by orchestrating multiple AI agents to perform tasks and integrating with the Model Context Protocol (MCP) to safely expose institutional tools (like databases, APIs, and document stores) to LLMs.
+SentinelMCP bridges the gap between static RAG systems and autonomous agents. It leverages **AutoGen (Core & Studio)** for sophisticated multi-agent conversations and the **Model Context Protocol (MCP)** to provide agents with real-world capabilities like web browsing and specialized data analysis.
 
-## Key Features
+## The Challenge
 
-- **Multi-Agent Orchestration**: Coordinates specialized agents (e.g., "Researcher," "Coder," "Reviewer") to solve complex multi-step problems.
-- **Model Context Protocol (MCP)**: Implements standard interfaces for connecting LLMs to internal data sources and tools securely.
-- **Advanced RAG**: Features hybrid search (semantic + keyword), reranking, and document parsing for high-precision retrieval.
-- **Production Grade**: Built with observability, tracing (LangSmith/Phoenix), and rate-limiting in mind.
+Traditional RAG systems are often "read-only" and struggle with multi-step reasoning. I needed a system that could:
+1.  **Orchestrate autonomous conversations**: Enable multiple agents to deliberate, peer-review, and execute code.
+2.  **Standardize Tool Access**: Use MCP to connect to specialized servers without custom boilerplate.
+3.  **Execute Real-world Actions**: Move beyond text to perform web research and analyze dynamic data.
+
+## Solution Architecture
+
+The system is built on an event-driven agentic architecture:
+
+-   **Agent Orchestration (AutoGen Core)**: Manages a conversation-based workflow where agents (e.g., "Commander," "Researcher," "Analyst") exchange messages to solve problems.
+-   **AutoGen Studio UI**: Provides a high-level interface for rapid prototyping and visualization of agent interactions and session histories.
+-   **MCP Integration**:
+    -   **Playwright MCP**: Empowers agents to browse the web, handle JavaScript-heavy sites, and extract real-time data.
+    -   **Tidewave MCP**: Enables specialized data analysis and institutional tool connectivity.
+-   **Observability**: Integrated tracing to monitor agent deliberations and tool call accuracy.
+
+## Technical Deep Dive
+
+### 1. Multi-Agent Conversations with AutoGen
+Unlike rigid directed graphs, AutoGen allows for flexible, conversation-based problem-solving. I implemented a **GroupChat** manager that dynamically decides which agent should speak next based on the task state.
+-   **Commander**: Breaks down user intent into a backlog.
+-   **Web Researcher**: Uses the Playwright MCP server to fetch live data.
+-   **Critic**: Validates the researcher's output before the final answer is delivered.
+
+### 2. Why Model Context Protocol (MCP)?
+By adopting MCP, SentinelMCP decouples tool implementation from agent logic. Using the **Playwright MCP server** allows agents to perform autonomous web browsing through a standardized protocol, making the system modular and easy to extend with new MCP servers like Tidewave for specific data domains.
+
+### 3. Production Readiness
+-   **State Management**: Leveraged AutoGen's persistent session storage for long-running agentic workflows.
+-   **Security**: All code execution (via AutoGen's code executors) is sandboxed to prevent unauthorized system access.
 
 ## Technologies Used
 
-- **Python**: Core logic.
-- **LangChain / LangGraph**: Agent orchestration framework.
-- **Vector Database**: (e.g., Pinecone/Qdrant) for semantic search.
-- **LLMs**: Integration with OpenAI/Anthropic/Local LLMs.
-- **MCP**: For standardized tool interfaces.
+-   **Python 3.11+**: Core implementation.
+-   **AutoGen (Core & Studio)**: Agent orchestration and UI.
+-   **Playwright MCP**: Autonomous web browsing.
+-   **Tidewave MCP**: Specialized data analysis tools.
+-   **Docker**: Sandboxed execution environment.
 
 ## Outcome
 
-SentinelMCP paves the way for "Agentic AI" in the enterprise, allowing organizations to automate complex knowledge workflows securely and reliably.
+SentinelMCP demonstrates a modular approach to "Agentic AI". By combining AutoGen's conversational power with the standardized connectivity of MCP, it creates a robust framework for automating complex, real-world knowledge tasks.

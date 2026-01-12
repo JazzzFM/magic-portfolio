@@ -103,59 +103,116 @@ const about: About = {
     experiences: [
       {
         company: "Saptiva AI",
-        timeframe: "2025-09 - Present",
+        timeframe: "Sep 2025 - Present",
         role: "Forward Deployed Engineer",
         achievements: [
           <>
             Led deployments of mission-critical AI across regulated industries
-            (banking/defense/government) in LatAm.
+            (banking/defense/government) in LatAm, integrating data pipelines + RAG/agents with
+            traceability and operational security.
           </>,
           <>
-            Standardized delivery with Docker + CI/CD + runbooks to reduce prototype→production
-            friction.
+            Designed runbooks and delivery standards (Docker/CI/CD/observability) to reduce
+            prototype→production friction and ensure reproducibility in client environments.
+          </>,
+          <>
+            Coordinated technical discovery with stakeholders and translated ambiguous requirements
+            into verifiable deliverables (demos, SLAs, p95 metrics, incident taxonomy).
           </>,
         ],
         images: [],
       },
       {
         company: "Banamex / Citibanamex",
-        timeframe: "2023-01 - 2025-09",
+        timeframe: "Jan 2023 - Sep 2025",
         role: "Senior ML Engineer & Tech Lead",
         achievements: [
           <>
-            Deployed credit-risk, CX and fraud models scoring ~3M tx/day; improved approval accuracy
-            and reduced false positives.
+            Deployed credit risk, CX, and fraud models at scale (~3M daily transactions) with Spark
+            feature pipelines and AWS SageMaker serving, improving approval accuracy and reducing
+            false positives.
           </>,
           <>
-            Integrated Spark-based feature pipelines; deployed to AWS SageMaker; reduced latency and
-            operational costs.
+            Co-created a Python/Shell + CI/CD deployment framework that shortened release cycles and
+            reduced operational costs on Spark clusters.
           </>,
           <>
-            Co-authored Python/Shell + CI/CD deployment framework; shortened release cycles and
-            reduced Spark cluster spend.
+            Operated ML in production with a focus on time-to-production (months → weeks) and model
+            governance discipline (tracking, reproducibility, explainability).
           </>,
         ],
         images: [],
       },
       {
         company: "NTT DATA",
-        timeframe: "2021-01 - 2022-12",
+        timeframe: "Nov 2021 - Dec 2022",
         role: "Lead ML Engineer",
         achievements: [
-          <>Automated Spark ETL pipelines on Hadoop clusters feeding downstream ML workflows.</>,
-          <>Built production evaluation pipeline (Airflow + MLflow + Pytest) for A/B testing.</>,
-          <>Mentored 7 juniors; delivered internal workshop on MLOps.</>,
+          <>
+            Automated ML/ETL pipelines in Spark on Hadoop, reducing time-to-deploy and technical
+            debt with MLOps practices.
+          </>,
+          <>
+            Designed a production evaluation pipeline (Airflow + MLflow + Pytest) for A/B testing
+            and experiment traceability.
+          </>,
+          <>
+            Mentored/onboarded up to 7 junior engineers and led a team (up to 6) to scale
+            performance and operations.
+          </>,
         ],
         images: [],
       },
       {
         company: "Gerencia del Poder / Morant Consultores",
-        timeframe: "2019-07 - 2021-11",
+        timeframe: "Sep 2020 - Nov 2021",
         role: "Data Scientist & R Developer",
         achievements: [
-          <>Deployed election-forecasting ML API (Flask) consumed by 3 major media outlets.</>,
-          <>Migrated ~300GB polling data to AWS Athena; reduced query latency minutes→seconds.</>,
-          <>Built Shiny dashboards integrating ML predictions and business KPIs.</>,
+          <>
+            Deployed an election-forecasting ML API (Flask) consumed by 3 major media outlets;
+            integrated dashboards (R Shiny) with KPIs and predictions.
+          </>,
+          <>
+            Migrated ~300GB of data to AWS Athena, lowering query latencies (minutes → seconds) and
+            improving accessibility for analysts/business.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "CINVESTAV-IPN",
+        timeframe: "2020 - 2021",
+        role: "Research Stay / Software Developer",
+        achievements: [
+          <>
+            Implemented C++ algorithms to describe random processes applied to motion planning
+            (algebraic topology), collaborating on applied research.
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "IBM México",
+        timeframe: "2020",
+        role: "Students Advocate / Training Program",
+        achievements: [
+          <>
+            Trained by IBM in Watson Cognitive Services to prototype solutions and rapidly deploy
+            websites (product orientation).
+          </>,
+        ],
+        images: [],
+      },
+      {
+        company: "CIC-IPN Cybersecurity Laboratory",
+        timeframe: "2019",
+        role: "Research Stay / Software Developer",
+        achievements: [
+          <>
+            Built a Python library (atop a mathematical animation engine) to visualize fundamental
+            lattice problems in post-quantum cryptography; focused on scientific communication +
+            reproducible tooling.
+          </>,
         ],
         images: [],
       },
@@ -163,19 +220,11 @@ const about: About = {
   },
   studies: {
     display: true,
-    title: "Education & Research",
+    title: "Education",
     institutions: [
       {
         name: "Instituto Politécnico Nacional (IPN)",
         description: <>B.Sc. Physics & Mathematics (ESFM) (2016 - 2021)</>,
-      },
-      {
-        name: "CIC-IPN Cybersecurity Laboratory",
-        description: <>Research Stay: Post-quantum cryptography & Lattices (2019)</>,
-      },
-      {
-        name: "CINVESTAV-IPN",
-        description: <>Research Stay: Algebraic topology & Motion planning (2020-2021)</>,
       },
     ],
   },
@@ -184,42 +233,46 @@ const about: About = {
     title: "Core Skills",
     skills: [
       {
-        title: "Languages & Backend",
-        description: <>Python, SQL, Bash, Go, R, FastAPI, Flask</>,
+        title: "Engineering & Backend",
+        description: <>Python (Expert), Go, SQL, FastAPI, Clean Architecture, gRPC</>,
         tags: [
           {
             name: "Python",
             icon: "python",
           },
           {
-            name: "Javascript",
-            icon: "javascript",
+            name: "Go",
+            icon: "golang",
+          },
+          {
+            name: "PostgreSQL",
+            icon: "postgresql",
           },
         ],
         images: [],
       },
       {
-        title: "Data Engineering",
-        description: <>PySpark, Hadoop, Airflow, Kafka, Flink</>,
+        title: "Data & MLOps Platform",
+        description: <>PySpark (Optimization), Airflow, MLflow, Kafka, Delta Lake</>,
         tags: [
           {
             name: "Spark",
             icon: "spark",
           },
           {
-            name: "Hadoop",
-            icon: "hadoop",
-          },
-          {
             name: "Airflow",
             icon: "airflow",
+          },
+          {
+            name: "Kafka",
+            icon: "kafka", // Ensure this icon exists or use a generic one if not
           },
         ],
         images: [],
       },
       {
-        title: "MLOps & Cloud",
-        description: <>AWS (S3, EMR, Lambda, Athena, SageMaker), Docker, Kubernetes, Terraform</>,
+        title: "Cloud & Infrastructure",
+        description: <>AWS (SageMaker, EMR, Lambda), Docker, Kubernetes, Terraform (IaC)</>,
         tags: [
           {
             name: "AWS",
@@ -230,19 +283,34 @@ const about: About = {
             icon: "docker",
           },
           {
-            name: "Kubernetes",
+            name: "K8s",
             icon: "kubernetes",
           },
         ],
         images: [],
       },
       {
-        title: "ML & AI",
-        description: <>scikit-learn, PyTorch, TensorFlow, GAMs, SHAP, Feature Engineering</>,
+        title: "AI & Multi-Agent Systems",
+        description: <>LLMs, AutoGen Core/Studio, MCP (Playwright, Tidewave), RAG, GAMs</>,
         tags: [
           {
-            name: "Analysis",
-            icon: "chart",
+            name: "Python",
+            icon: "python",
+          },
+          {
+            name: "PyTorch",
+            icon: "pytorch",
+          },
+        ],
+        images: [],
+      },
+      {
+        title: "Processes & Culture",
+        description: <>CI/CD (GitHub Actions), TDD, RFC-driven Design, Agile, GitOps</>,
+        tags: [
+          {
+            name: "GitHub",
+            icon: "github",
           },
         ],
         images: [],
