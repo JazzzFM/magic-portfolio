@@ -15,23 +15,21 @@ team:
 
 [View on GitHub](https://github.com/JazzzFM/AegisFraud)
 
-AegisFraud (from Greek “aegis” = shield) is a high-performance, real-time fraud detection platform. It ingests transaction streams to detect anomalies in milliseconds, preventing financial loss before it happens.
+The cost of a missed fraud signal is measured in milliseconds. AegisFraud (from Greek *aegis*, meaning shield) is a real-time detection platform that intercepts anomalous transactions before they settle—combining stream processing, online model serving, and a dynamic rules engine into a single cohesive system.
 
-## Key Features
+## Architecture
 
-- **Real-Time Processing**: Utilizes Apache Kafka and Flink for sub-second event processing and feature extraction.
-- **Hybrid Architecture**: Combines batch training (Airflow) with real-time inference (Flink/On-line serving).
-- **Dynamic Rules Engine**: Allows analysts to update fraud detection rules on the fly without redeploying the entire system.
-- **Model Lifecycle**: Managed via MLflow for versioning, staging, and promoting detection models.
+The core engineering challenge was bridging two different time horizons: batch model retraining (hours) and real-time inference (milliseconds). AegisFraud solves this with a hybrid pipeline:
 
-## Technologies Used
+- **Ingestion layer**: Apache Kafka absorbs raw transaction streams, decoupling producers from the rest of the system and providing durable replay for recovery scenarios.
+- **Real-time inference**: Apache Flink consumes events, extracts features in-flight using stateful operators, and scores each transaction against the active fraud model with sub-second latency.
+- **Batch retraining**: Apache Airflow orchestrates nightly retraining jobs that promote updated models through MLflow staging before any change reaches production.
+- **Dynamic rules engine**: Fraud analysts can push new detection rules at runtime—without redeploying Flink jobs—allowing the system to respond to emerging attack patterns within minutes.
 
-- **Apache Kafka**: Event streaming backbone.
-- **Apache Flink**: Stateful stream processing.
-- **Apache Airflow**: Orchestration of batch retraining pipelines.
-- **MLflow**: Model registry and tracking.
-- **Python & Java**: For model development and Flink jobs.
+## Model Lifecycle
+
+MLflow manages the complete model lifecycle: experiment tracking, artifact storage, version promotion, and rollback. A new detection model can move from development to production through a single registry transition, decoupled from infrastructure releases. This separation means the data science cycle and the deployment cycle never block each other.
 
 ## Outcome
 
-AegisFraud demonstrates how modern streaming technologies can be composed to solve critical security challenges, providing a scalable shield against evolving fraud patterns.
+AegisFraud demonstrates how Kafka, Flink, Airflow, and MLflow—each a best-in-class tool in its domain—can be composed into a system that learns from historical data while acting on live transactions in real time. The architecture is designed to scale horizontally at every layer without changes to application logic.

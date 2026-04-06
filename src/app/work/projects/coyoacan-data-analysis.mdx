@@ -4,6 +4,8 @@ publishedAt: "2024-05-15"
 summary: "Integrated analysis of georeferenced, economic, and electoral data for strategic decision-making in Coyoacán, Mexico City."
 images:
   - "/images/projects/coyoacan-data-analysis/cover.png"
+  - "/images/projects/coyoacan-data-analysis/image-01.png"
+  - "/images/projects/coyoacan-data-analysis/image-02.png"
 team:
   - name: "Jaziel Flores"
     role: "Lead Data Scientist / Engineer"
@@ -16,36 +18,25 @@ link: "https://github.com/JazzzFM/CoyoacanDataAnalysis"
 
 [View on GitHub](https://github.com/JazzzFM/CoyoacanDataAnalysis)
 
-This project performs a detailed analysis of the Coyoacán borough in Mexico City, utilizing georeferenced, economic, electoral, and environmental data to identify patterns and community needs. It is designed to provide valuable insights for strategic decision-making and public policy.
-
-## Objectives
-
-- **Demographic & Economic Evaluation**: Analyze population distribution, income, and employment to identify vulnerable areas.
-- **Service Accessibility**: Map health, education, and transport services to identify infrastructure gaps.
-- **Environmental Quality**: Evaluate air quality and green space access, correlating them with public health.
-- **Electoral Patterns**: Integrate electoral data to understand demographic influences on local voting behavior.
-- **Strategic Recommendations**: Propose public policies focused on the most vulnerable groups.
+Coyoacán is one of Mexico City's most historically and demographically complex boroughs. Urban decision-makers there typically work from siloed datasets—INEGI for demographics, IECM for electoral behavior, local stations for air quality—and correlating them manually is a barrier to data-informed policy. This project removes that barrier by building a unified analytical platform that merges all three into a single queryable system, turning fragmented public records into actionable urban intelligence.
 
 ## Technical Implementation
 
-### PostGIS Migration
-- **Database**: PostgreSQL with PostGIS extension for efficient geospatial querying.
-- **Data Ingestion**: Migration of SHP (Shapefiles) using `ogr2ogr`.
-- **Integrity**: Validation and quality checks on imported geospatial data.
-- **Security**: Environment variable configuration for secure database access.
+### Geospatial Database
+
+Raw shapefiles from INEGI and IECM were ingested into **PostgreSQL + PostGIS** using `ogr2ogr`, enabling spatial joins and proximity queries that flat-file analysis cannot support. Coordinate system validation was applied at ingestion to catch mismatches before they could corrupt downstream analyses.
 
 ### Interactive Dashboard
-- **Framework**: Developed using **Dash (Python)**.
-- **Real-time Integration**: Connected to the PostGIS database for live data exploration.
-- **Containerization**: Deployed using **Docker**, ensuring the dashboard and database coexist in a shared internal network.
 
-## Technologies Used
+A **Dash (Python)** application connects directly to the PostGIS database, exposing filters for neighborhood, time period, and data layer. The dashboard and database run in the same Docker network via Docker Compose, making the full stack reproducible from a single `docker compose up`—no manual setup, no environment drift.
 
-- **Python**: Dash, Pandas, GeoPandas.
-- **Geospatial**: PostGIS, PostgreSQL, QGIS, `ogr2ogr`.
-- **Infrastructure**: Docker, Docker Compose.
-- **Data Sources**: INEGI (Economic), IECM (Electoral), Environmental monitoring stations.
+## Key Analyses
+
+- **Economic vulnerability**: Cross-tabulated income and employment data against neighborhood boundaries to surface high-need zones invisible in aggregated city-level statistics.
+- **Service gap mapping**: Plotted health clinics, schools, and transit stops against population density to identify areas where infrastructure lags demand.
+- **Environmental-health correlation**: Overlaid air quality sensor readings with respiratory illness rates by district, revealing spatial patterns not captured in either dataset alone.
+- **Electoral geography**: Correlated voting behavior with socioeconomic indicators to understand what demographic forces shape local political outcomes in each neighborhood.
 
 ## Outcome
 
-The project successfully provides a unified platform to visualize complex urban dynamics, enabling stakeholders to move from raw data to actionable urban intelligence.
+The platform delivers spatial queries in seconds that would otherwise require hours of manual GIS work. By unifying demographic, environmental, and electoral data in one interface, it gives planners a live view of how multiple forces intersect across the borough—making it possible to move from raw data to targeted policy proposals without data engineering overhead on every question.

@@ -13,22 +13,23 @@ team:
 
 ## Overview
 
-At Saptiva AI, I led the deployment of mission-critical AI systems for high-stakes sectors, including banking, defense, and government across Latin America. The core challenge was delivering cutting-edge AI within highly regulated environments that require strict security, auditability, and reliability.
+Deploying AI to banking, defense, and government institutions in Latin America means operating in environments built to resist change: air-gapped networks, procurement-locked hardware, multi-layer approval chains, and zero tolerance for unplanned downtime. At Saptiva AI, I built the deployment infrastructure that made this possible at scale—without bespoke engineering for every new client.
 
-## Key Features
+## The Core Problem
 
-- **Standardized Delivery**: Built a unified deployment framework using Docker and CI/CD pipelines to ensure consistency across diverse client environments.
-- **Regulated Environment Compliance**: Implemented security-first runbooks and deployment strategies tailored for air-gapped or restricted networks.
-- **Latency Optimization**: Fine-tuned model serving layers to meet the demanding SLAs of financial institutions.
-- **Monitoring & Observability**: Integrated production-grade logging and alerting to proactively identify drift and system health issues.
+Every client had different constraints. Some ran fully on-premises with no internet access. Others required vendor certification before any software could be installed. All of them demanded full auditability of every change and a clear rollback path for every deployment. Building custom delivery processes per client was not viable beyond a handful of accounts. The solution was standardization.
 
-## Technologies Used
+## What I Built
 
-- **Docker & Kubernetes**: For scalable and portable container orchestration.
-- **GitLab CI/CD / GitHub Actions**: For automated testing and deployment.
-- **FastAPI / Go**: For high-performance model serving APIs.
-- **Python**: Core language for model integration and orchestration scripts.
+- **Unified container-based delivery**: Packaged all Saptiva models and services as Docker images with pinned dependencies, enabling identical runtime behavior across wildly different host environments—from cloud VMs to isolated on-premises servers.
+- **Air-gapped deployment runbooks**: Documented step-by-step procedures for environments with no internet access, covering offline image transfers, cryptographic signature verification, and rollback sequences. These runbooks passed security audits at national banking and defense institutions.
+- **Model serving optimization**: Profiled and tuned the inference layer (FastAPI + quantized models) to meet the SLAs demanded by financial clients—typically sub-200ms for inference endpoints under production load.
+- **Observability integration**: Deployed logging and alerting tailored to each client's existing SIEM infrastructure, enabling proactive detection of model drift and service degradation without requiring changes to the client's security stack.
+
+## Technologies
+
+Docker · Kubernetes · GitLab CI/CD · GitHub Actions · FastAPI · Go · Python
 
 ## Outcome
 
-The standardized pipeline reduced the "Prototype to Production" time by 40%, enabling faster delivery of value to clients while maintaining the rigorous security standards required by national defense and central banking entities.
+The standardized pipeline reduced prototype-to-production time by **40%**, enabling Saptiva to onboard clients faster while maintaining the security posture required by national defense and central banking entities. It also reduced the per-deployment engineering overhead significantly—freeing the team to focus on model quality rather than infrastructure coordination with each new client.

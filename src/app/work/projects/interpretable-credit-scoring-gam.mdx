@@ -4,34 +4,34 @@ publishedAt: "2024-11-15"
 summary: "A complete enterprise MLOps system for credit scoring using Generalized Additive Models (GAM) with full interpretability and automatic ranking."
 images:
   - "/images/projects/interpretable-credit-scoring-gam/cover.png"
+  - "/images/projects/interpretable-credit-scoring-gam/image-01.png"
+  - "/images/projects/interpretable-credit-scoring-gam/image-02.png"
 team:
   - name: "Jaziel Flores"
     role: "Sole Creator"
     avatar: "/images/avatar.jpg"
     linkedIn: "https://linkedin.com/in/jazieldavidfloresrodriguez"
+link: "https://github.com/JazzzFM/InterpretableRankingWithGeneralizedAdditiveModels"
 ---
 
 ## Overview
 
 [View on GitHub](https://github.com/JazzzFM/InterpretableRankingWithGeneralizedAdditiveModels)
 
-This project delivers a complete enterprise MLOps system for credit scoring. It leverages Generalized Additive Models (GAMs) to provide high-accuracy predictions while maintaining full interpretability—a critical requirement for regulatory compliance in the financial sector.
+In the financial sector, a credit model that can't explain its decisions isn't just a technical limitation—it's a regulatory one. GDPR's "right to explanation," CCPA, and local financial law all require that automated credit decisions be understandable by humans. This project delivers a complete MLOps system that achieves high predictive accuracy without sacrificing that interpretability.
 
-## Key Features
+## Why Generalized Additive Models
 
-- **Explainable AI (XAI)**: Uses GAMs (via InterpretML) to generate feature contribution graphs, allowing loan officers to understand exactly *why* a score was assigned.
-- **Automatic Ranking**: Implements learning-to-rank algorithms to prioritize high-value applicants.
-- **End-to-End MLOps**: Includes automated retraining pipelines, drift detection, and model serving via FastAPI.
-- **Regulatory Compliance**: Designed to meet "Right to Explanation" standards (GDPR/CCPA/local financial laws).
+GAMs occupy a precise niche: they perform comparably to gradient-boosted trees on structured tabular data while remaining mathematically transparent. Each feature's contribution is modeled as an independent smooth function, making it possible to generate a chart showing exactly how each variable influenced a given score. This is what loan officers and regulators actually need—not a SHAP value attached to a black box, but a clear, auditable explanation of every decision.
 
-## Technologies Used
+## System Components
 
-- **Python**: Core language.
-- **InterpretML / EBM**: For interpretable machine learning models.
-- **FastAPI**: High-performance model serving.
-- **Docker & Kubernetes**: Scalable deployment.
-- **PostgreSQL**: Feature store and transaction logging.
+- **Model training**: Explainable Boosting Machine (EBM) via InterpretML, with automated hyperparameter search and cross-validation on historical lending data.
+- **Ranking layer**: Learning-to-rank algorithms sort applicants not just by creditworthiness but by expected value—prioritizing the highest-return, lowest-risk applicants for the institution's portfolio.
+- **Model serving**: FastAPI endpoint with sub-100ms inference and per-request explanation generation, returning both a score and a human-readable feature breakdown for every prediction.
+- **MLOps pipeline**: Automated retraining triggers on new data, statistical drift detection compares live distributions against training baselines, and models promote through staging before reaching production.
+- **Feature store**: PostgreSQL snapshots feature values at prediction time, making it possible to fully reproduce any past decision for audits or disputes—years after the fact.
 
 ## Outcome
 
-The system bridges the gap between black-box AI performance and the transparency required by financial institutions, enabling safer and more fair credit lending decisions.
+The system closes the gap between ML performance and regulatory compliance—a gap that typically forces financial institutions to choose simpler, less accurate models. By using GAMs, this project demonstrates that interpretability and predictive power are not a trade-off but a design choice, enabling safer and more fair credit lending decisions without sacrificing business value.

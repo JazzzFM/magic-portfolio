@@ -4,6 +4,10 @@ publishedAt: "2025-02-01"
 summary: "Production-ready conversational interface for SAPTIVA language models with integrated orchestration and file analyzer capabilities."
 images:
   - "/images/projects/octavios-chat/cover.png"
+  - "/images/projects/octavios-chat/image-01.png"
+  - "/images/projects/octavios-chat/image-02.png"
+  - "/images/projects/octavios-chat/image-03.png"
+  - "/images/projects/octavios-chat/image-04.png"
 team:
   - name: "Jaziel Flores"
     role: "Lead Full Stack Engineer"
@@ -16,24 +20,24 @@ link: "https://octavios.saptiva.com"
 
 [Visit Live App](https://octavios.saptiva.com) | [GitHub](https://github.com/saptiva-ai/octavios-chat)
 
-OctaviOS Chat is the flagship conversational interface for Saptiva AI, designed to provide enterprise clients with a secure, production-ready environment to interact with proprietary Language Models. 
+Enterprise AI interfaces have requirements that consumer chat products don't: session isolation, document-level access control, multi-model routing, and full auditability. Off-the-shelf chat UIs don't address these. OctaviOS Chat is Saptiva AI's flagship client-facing product—a conversational interface purpose-built for proprietary language models serving enterprise clients in regulated industries.
 
-I was responsible for the end-to-end lifecycle of this product: from **UI/UX design** and **architectural planning** to **full-stack development** and final **production deployment**.
+I owned this project end-to-end: from initial UX design and architectural planning through full-stack implementation and production deployment.
 
-## Key Features
+## The Challenge
 
-- **Integrated Orchestration**: Seamlessly manages context and agentic workflows between different Saptiva models.
-- **File Analyzer**: Advanced RAG (Retrieval-Augmented Generation) capabilities allowing users to upload and query complex documents instantly.
-- **Production-Ready**: Built with scalability and reliability in mind, ensuring high availability for enterprise workloads.
-- **Secure & Compliant**: Designed to handle sensitive data within regulated environments.
+Saptiva's clients operate in sectors—banking, government, defense—where data cannot leave the client's perimeter and every system interaction must be auditable. The chat interface needed to handle these constraints at the architecture level, not as a bolted-on security layer.
 
-## Technologies Used
+## Key Capabilities
 
-- **Frontend**: Next.js, React, TypeScript.
-- **Backend**: FastAPI (Python) for orchestration and agent logic.
-- **Infrastructure**: Docker, Kubernetes.
-- **AI Integration**: Custom Saptiva LLM APIs.
+- **Multi-model orchestration**: Routes queries to the appropriate Saptiva model based on task type, maintaining context and conversation state across model boundaries without exposing the routing logic to the user.
+- **File Analyzer (RAG)**: Users upload documents—contracts, reports, technical specifications—and query them in natural language. The pipeline chunks, embeds, and retrieves relevant context in real time, with results grounded in the uploaded content.
+- **Enterprise security**: Designed for strict data residency requirements. No data leaves the client's infrastructure. Access control is enforced at the session and document level.
+
+## Architecture
+
+The frontend is built in **Next.js + TypeScript**, optimized for streaming responses with low perceived latency. The backend is a **FastAPI** orchestration layer that manages model routing, session state, and the RAG pipeline. The system runs on **Kubernetes**, with isolated deployments per client environment so infrastructure changes for one client never affect another.
 
 ## Outcome
 
-Successfully deployed a robust chat platform that serves as the primary touchpoint for Saptiva's clients, enabling them to leverage complex AI capabilities through an intuitive and responsive user interface.
+OctaviOS Chat is the primary touchpoint through which Saptiva's clients interact with its AI platform. Its modular architecture made onboarding new enterprise clients a configuration exercise rather than a development project—each new deployment adapts to the client's environment without forking the codebase.
