@@ -15,6 +15,7 @@ import {
   HiOutlineCircleStack,
   HiOutlineChartBar,
   HiOutlineAcademicCap,
+  HiOutlineCloud,
 } from "react-icons/hi2";
 
 import {
@@ -33,7 +34,6 @@ import {
   SiDocker,
   SiKubernetes,
   SiPython,
-  SiAmazon,
   SiApachespark,
   SiApachehadoop,
   SiApacheairflow,
@@ -85,7 +85,7 @@ export const iconLibrary: Record<string, IconType> = {
   docker: SiDocker,
   kubernetes: SiKubernetes,
   python: SiPython,
-  aws: SiAmazon,
+  aws: HiOutlineCloud,
   spark: SiApachespark,
   hadoop: SiApachehadoop,
   airflow: SiApacheairflow,
